@@ -182,3 +182,36 @@ In the following picture we have an example of a database, which could be used a
 In the tables `Products` and `Customers` each row has a unique *id* number, with which they can be referenced at. Because of this, the table `Purchases` we can represent in number form, which items which customer has chosen. In this example, Uolevi has carrots and celery in their basket, and Maija har redish, turnip and celery in theirs.
 
 ## SQL Language
+
+The *Structured Query Language* or *SQL* is an established way to handle data in relational databases. The language as commands, with which each database user (for example the programmer or software using the database) can add, search, change and remove information.
+
+SQL commands are formed with *keywords* such as `SELECT` and `WHERE`, names of tables and columns and other values. For example, the following command
+
+```sql
+SELECT price FROM Products WHERE name='radish';
+```
+
+Fetches the price for radish from the database described above. The command end with a semicolon `;` and we can use whitespace and linebreaks the way we want. For example, we could write the command above like this as well:
+
+
+```sql
+SELECT price 
+FROM Products 
+WHERE name='radish';
+```
+
+As SQL is from the ages of old, it has plenty of resemblance to the programming of that time. For example
+
+* The keywords are complete English words, and the commands resemble English sentences
+* The keywords are not casesensitive. For example, `SELECT`, `select` and `SeLeCT` are all the same. The keywords are usually written with all capital letters.
+* The equality sign `=` means both equality and setting a value (and `== ` is not used at all).
+
+SQL language has a *standard*, which aims to give common base for the langauge. In practice every implementation does something their own way. We try ton concentrate on the properties which are common for all SQL databases.
+
+## Internal structure of a database
+
+Between the user and the database there is a *relational database management system*, whose function is to handle the SQL commands from the user. For example when the user gives a command which retrieves information from the database, the database system has to find a good way to handle the command and deliver the results back to the user as fast as possible.
+
+The nice idea behind SQL is that the user only has to *describe* what information they want, and the database system does all the work and fetches the information from the database. This is convenient for the user, because they don't have to know anything about the internal functionality but can rely on the database system to function.
+
+Designing a database system is a complex task, and only those really interested are aware of the internal details of database systems. Most of this is outside the scope of this course, but we'll have a glimpse of that in parts 6 and 7.
