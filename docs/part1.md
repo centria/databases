@@ -154,7 +154,7 @@ Relational database consists of *tables* which have fixed *columns*. The data is
 
 In the following picture we have an example of a database, which could be used as a part of a web store. In the tables `Products`, `Customers` and `Purchases` we have information about products, customers and their shopping carts.
 
-|:   **Products**   :|||
+|   **Products**   |||
 |-|---|---|
 |**id**   |**name**   |**price**   |
 |1   |radish   | 7  |
