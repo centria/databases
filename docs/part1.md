@@ -70,3 +70,78 @@ MAKE TRANSACTION
 ACCOUNT: 175299717
 SUM: 100
 ```
+
+In this case we have created accounts in the bank for Maija and Uolevi. After this 500 euros are transferred into Uolevi's account. Then Uolevi transfers 100 euros into Maija's account (so Uolevi's balance is decreased by 100 and Maija's saldo is increased by 100). In the end, Uolevi's balance is 400 and Maija's balance is 100.
+
+The idea is, that with each transaction we add three lines into to the end of the file, which represent the transaction. When we read through the lines of the file, we know all the accounts in the bank and we can calculate the current balance for them all.
+
+## I did it myself and saved?
+
+This kind of a database works fine, if we can assume the bank having only a few customers and transaction, and only one customer uses the bank at a time and the computer is always reliable. Unfortunately, this is usually not the case.
+
+## Amount of information
+
+What happens, if the bank has a million customers, and the accounts of said customers have on average five transactions per day? This way we have to add 15 million lines to the file per day, or more than five billion lines in a year.
+
+There is a critical design flaw conserning efficiency in our database: when we want to know the balance of a customer, we have to go through all the lines in the file. When the database grows, this becomes extremely slow.
+
+In practice, problems with efficiency are shown to customers as the software using the database working slowly. For example in this case, Maija would probably wais for a minute, before she could see her balance from the bank.
+
+## Concurrency
+
+Many systems work fine as long as they have only one user, but concurrent users can cause problems. What happens for example, if two users try to create accounts at the same time?
+
+Let's assume we want to create accounts for Liisa and Aapeli, and write the following lines into the file:
+
+```
+CREATE ACCOUNT
+NUMBER: 185421761
+OWNER: Liisa
+CREATE ACCOUNT
+NUMBER: 111562714
+OWNER: Aapeli
+```
+
+Alas, as two users are writing into the database at the same time, the lines could *mix up* and we could end up with the following file:
+
+```
+CREATE ACCOUNT
+NUMBER: 185421761
+CREATE ACCOUNT
+NUMBER: 111562714
+OWNER: Aapeli
+OWNER: Liisa
+```
+
+Now Liisa has put in the first two lines, then Aapeli all three of his and finally one more line from Liisa. With this it is impossible to know, which account is whose, and the data in our database is *corrupted*.
+
+## Suprises
+
+One more problem is that computers can go off *at any time* (for example a power outage, someone plugs it off the socket, etc). What happens, if at exactly that point we are making changes to our database?
+
+Let's have the following scenario, where Maija transfers 50 euros to Uolevi:
+
+```
+MAKE TRANSACTION
+ACCOUNT: 175299717
+SUM: -50
+MAKE TRANSACTION
+ACCOUNT: 131778223
+SUM: 50
+```
+
+However the computer dies after three lines, where only the following lines are saved:
+
+```
+MAKE TRANSACTION
+ACCOUNT: 175299717
+SUM: -50
+```
+
+Now Maija has lost 50 euros and Uolevi did not get anything, or 50 euros just *vanished* and this cannot even be seen from the file, as the power comes back.
+
+## How do we fix this?
+
+Handling a database is a tricky task, and on this course we will not try to achieve everything ourselves, but rely on existing database systems.
+
+# Relational models
