@@ -46,3 +46,27 @@ A term often used, *NoSQL*, refers to a database based on something else than th
 # Simple database
 
 Before we start to look into existing database systems, let's try and make a database and its handling *by ourselves* in some simple way and see, what kinds of problems we run into.
+
+Let's assume we want to create a database for a bank. The purpose of the database is to store the customer information and the transactions on their accounts.
+
+## Database structure
+
+We will store the database into a text file, `bank.txt`, whose lines reflect the transactions in the database. There are two different transactions: You can create a new account into the bank (the balance) or the balance of an account changes. The content of the file could be something like this:
+
+```
+CREATE ACCOUNT
+NUMBER: 131778223
+OWNER: Uolevi
+CREATE ACCOUNT
+NUMBER: 175299717
+OWNER: Maija
+MAKE TRANSACTION
+ACCOUNT: 131778223
+SUM: 500
+MAKE TRANSACTION
+ACCOUNT: 131778223
+SUM: -100
+MAKE TRANSACTION
+ACCOUNT: 175299717
+SUM: 100
+```
