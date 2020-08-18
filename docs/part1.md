@@ -154,8 +154,8 @@ Relational database consists of *tables* which have fixed *columns*. The data is
 
 In the following picture we have an example of a database, which could be used as a part of a web store. In the tables `Products`, `Customers` and `Purchases` we have information about products, customers and their shopping carts.
 
-|   **Products**   |
-|---|---|---|
+|:   **Products**   :|
+|-|---|---|
 |**id**   |**name**   |**price**   |
 |1   |radish   | 7  |
 |2   |carrot   | 5  |
@@ -164,7 +164,7 @@ In the following picture we have an example of a database, which could be used a
 |5   |celery   | 5  |
 
 | **Customers** |
-|---|----|
+|-|----|
 |**id**  |**name**   |
 |1| Uolevi |
 |2| Maija |
@@ -172,10 +172,13 @@ In the following picture we have an example of a database, which could be used a
 
 |**Purchases**|
 |**customer_id**|**product_id**|
+|-|-|
 |1|2|
 |1|5|
 |2|1|
 |2|4|
 |2|5|
 
-In the tables `Products` and `Customers` each row has a unique *id* number, with which they can be referenced at. Because of this, the table `Purchases` we can represent in number form, which items which customer has chosen.  
+In the tables `Products` and `Customers` each row has a unique *id* number, with which they can be referenced at. Because of this, the table `Purchases` we can represent in number form, which items which customer has chosen. In this example, Uolevi has carrots and celery in their basket, and Maija har redish, turnip and celery in theirs.
+
+## SQL Language
