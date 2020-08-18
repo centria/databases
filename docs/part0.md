@@ -1,19 +1,20 @@
 ---
-title: "Learning goals"
+title: "Course structure"
 permalink: /part0/
 nav_order: 2
 published: true
 ---
 
-## Part 0 - Learning goals
+## Part 0 - Course structure
 
 The list below does not include everything, but exists to give a guideline for students, what to expect each week. This list may extend as the course goes on.
 
 | Part   |      Goal  
 |----------|-------------|
-| 1| 1st week goals |
-| 2| 2nd week goals |
-| 3| ... |
-| 4| ... |
-| 5| ... |
-| 6| ... |
+| 1| Introduction |
+| 2| SQL Basics |
+| 3| Multible tables |
+| 4| More techniques |
+| 5| Desiging databases |
+| 6| Data integrity |
+| 7| Efficiency |
