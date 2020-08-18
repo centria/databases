@@ -145,3 +145,37 @@ Now Maija has lost 50 euros and Uolevi did not get anything, or 50 euros just *v
 Handling a database is a tricky task, and on this course we will not try to achieve everything ourselves, but rely on existing database systems.
 
 # Relational models
+
+Relational models replaced their competitors in the 1970's and has ruled the database world ever since. The model is based on two basic concepts: all the data is stored in the database as *rows*, which can *reference* to one another, and the database user handles information with *SQL* language, which hides the internal details of the database from the user.
+
+## Database structure
+
+Relational database consists of *tables* which have fixed *columns*. The data is stored in the tables as *rows*, which have certain values in the columns. Each table contains information related to a certain collection.
+
+In the following picture we have an example of a database, which could be used as a part of a web store. In the tables `Products`, `Customers` and `Purchases` we have information about products, customers and their shopping carts.
+
+|   **Products**   |
+|---|---|---|
+|**id**   |**name**   |**price**   |
+|1   |radish   | 7  |
+|2   |carrot   | 5  |
+|3   |turnip   | 4  |
+|4   |parsley   | 8  |
+|5   |celery   | 5  |
+
+| **Customers** |
+|---|----|
+|**id**  |**name**   |
+|1| Uolevi |
+|2| Maija |
+|3| Aapeli |
+
+|**Purchases**|
+|**customer_id**|**product_id**|
+|1|2|
+|1|5|
+|2|1|
+|2|4|
+|2|5|
+
+In the tables `Products` and `Customers` each row has a unique *id* number, with which they can be referenced at. Because of this, the table `Purchases` we can represent in number form, which items which customer has chosen.  
