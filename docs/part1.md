@@ -185,14 +185,6 @@ In the following tables we have an example of a database, which could be used as
  2            5
 ```
 
-|**Purchases**|
-|**customer_id**|**product_id**|
-|-|-|
-|1|2|
-|1|5|
-|2|1|
-|2|4|
-|2|5|
 
 In the tables `Products` and `Customers` each row has a unique *id* number, with which they can be referenced at. Because of this, the table `Purchases` we can represent in number form, which items which customer has chosen. In this example, Uolevi has carrots and celery in their basket, and Maija har redish, turnip and celery in theirs.
 
