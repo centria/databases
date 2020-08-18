@@ -152,23 +152,38 @@ Relational models replaced their competitors in the 1970's and has ruled the dat
 
 Relational database consists of *tables* which have fixed *columns*. The data is stored in the tables as *rows*, which have certain values in the columns. Each table contains information related to a certain collection.
 
-In the following picture we have an example of a database, which could be used as a part of a web store. In the tables `Products`, `Customers` and `Purchases` we have information about products, customers and their shopping carts.
+In the following tables we have an example of a database, which could be used as a part of a web store. In the tables `Products`, `Customers` and `Purchases` we have information about products, customers and their shopping carts.
 
-|   **Products**   |||
-|-|---|---|
-|**id**   |**name**   |**price**   |
-|1   |radish   | 7  |
-|2   |carrot   | 5  |
-|3   |turnip   | 4  |
-|4   |parsley   | 8  |
-|5   |celery   | 5  |
+```
+ Products 
+ id  name     price
+ --  ------   -----
+ 1   radish   7  
+ 2   carrot   5  
+ 3   turnip   4  
+ 4   parsley  8  
+ 5   celery   5  
+```
 
-| **Customers** |
-|-|----|
-|**id**  |**name**   |
-|1| Uolevi |
-|2| Maija |
-|3| Aapeli |
+```
+ Customers 
+ id  name  
+ --  ------
+ 1   Uolevi
+ 2   Maija
+ 3   Aapeli
+```
+
+```
+ Purchases 
+ customer_id  product_id
+ -----------  ----------
+ 1            2
+ 1            5
+ 2            1
+ 2            4
+ 2            5
+```
 
 |**Purchases**|
 |**customer_id**|**product_id**|
