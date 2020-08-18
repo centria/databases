@@ -5,7 +5,7 @@ nav_order: 2
 published: true
 ---
 
-## Part 0 - Course structure
+## Course structure
 
 The list below does not include everything, but exists to give a guideline for students, what to expect each week. This list may extend as the course goes on.
 
@@ -19,4 +19,4 @@ The list below does not include everything, but exists to give a guideline for s
 | 6| Data integrity |
 | 7| Efficiency |
 
-Read next about the [exercises](exercises).
+Read next about the [exercises](../exercises).
