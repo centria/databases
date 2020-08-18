@@ -1,10 +1,10 @@
 ---
-title: "Part 5"
+title: "Designing databases"
 permalink: /part5/
 nav_order: 6
 published: true
 ---
 
-## Part 5
+## Designing databases
 
 Here will be more.

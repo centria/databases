@@ -1,10 +1,10 @@
 ---
-title: "Part 7"
+title: "Efficiency"
 permalink: /part7/
 nav_order: 8
 published: true
 ---
 
-## Part 7
+## Efficiency
 
 Here will be more.

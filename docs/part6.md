@@ -1,10 +1,10 @@
 ---
-title: "Part 6"
+title: "Data integrity"
 permalink: /part6/
 nav_order: 7
 published: true
 ---
 
-## Part 6
+## Data integrity
 
 Here will be more.
