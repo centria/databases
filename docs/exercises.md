@@ -12,13 +12,13 @@ The exercises are stuctured as follows:
 * [Exercises 41-60](https://centria.github.io/sql-exercises/#41) are for Part 4
 * [Exercises 61-100](https://centria.github.io/sql-exercises/#61) are more advanced
 
-To pass the course, you have to have at least **60 exercises** correctly done. The grading is as follows:
+To pass the course, you have to have at least **50 exercises** correctly done. The grading is as follows:
 
-* Grade 1: 60-68 exercises
-* Grade 2: 69-77 exercises
-* Grade 3: 78-86 exercises
-* Grade 4: 87-95 exercises
-* Grade 5: 96-100 exercises
+* Grade 1: 50-59 exercises
+* Grade 2: 60-69 exercises
+* Grade 3: 70-79 exercises
+* Grade 4: 80-89 exercises
+* Grade 5: 90-100 exercises
 
 Deadline for the exercises are as follows:
 
