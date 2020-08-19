@@ -5,6 +5,6 @@ nav_order: 8
 published: true
 ---
 
-## Efficiency
+# Efficiency
 
 Here will be more.

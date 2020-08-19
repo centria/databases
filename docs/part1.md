@@ -5,7 +5,7 @@ nav_order: 3
 published: true
 ---
 
-## What is a database?
+# What is a database?
 
 A *database* is an organized collection of data, generally stored and accessed electronically from a computer system. We can perform *queries* on them and change their content. For example the following are databases:
 

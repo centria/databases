@@ -5,6 +5,6 @@ nav_order: 5
 published: true
 ---
 
-## More techniques
+# More techniques
 
 Here will be more.

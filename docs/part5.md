@@ -5,6 +5,6 @@ nav_order: 6
 published: true
 ---
 
-## Designing databases
+# Designing databases
 
 Here will be more.

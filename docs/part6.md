@@ -5,6 +5,6 @@ nav_order: 7
 published: true
 ---
 
-## Data integrity
+# Data integrity
 
 Here will be more.
