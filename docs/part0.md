@@ -15,7 +15,7 @@ The list below does not include everything, but exists to give a guideline for s
 | 2| SQL Basics |
 | 3| Multible tables |
 | 4| More techniques |
-| 5| Desiging databases |
+| 5| Designing databases |
 | 6| Data integrity |
 | 7| Efficiency |
 

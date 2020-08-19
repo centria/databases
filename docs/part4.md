@@ -5,118 +5,165 @@ nav_order: 5
 published: true
 ---
 
-# More techniques
+# Properties of SQL
 
-SQL:n ominaisuuksia
-SQL-kielessä esiintyy monia samoja elementtejä kuin ohjelmoinnissa: tyyppejä, lausekkeita ja funktioita. Olemme jo nähneet monia esimerkkejä SQL-komennoista, mutta nyt on hyvä hetki tutustua kieleen hieman syvällisemmin.
+In SQL there are many same elements as in programming: Types, statements and fucntions. We have seen many examples of SQL commands, but let's loon into the language a bit deeper.
 
-Tyypit
-SQL:n saatavilla olevat tyypit ja niiden ominaisuudet riippuvat käytetystä tietokantajärjestelmästä. Usein pelkästään kokonaislukuja ja merkkijonoja varten on saatavilla suuri määrä vaihtoehtoja. Käytännössä kuitenkin tyypit INTEGER (kokonaisluku) ja TEXT (merkkijono) riittävät pitkälle.
+# Types
 
-TEXT vs. VARCHAR
-Perinteikäs SQL-tyyppi merkkijonon tallentamiseen on VARCHAR, jossa annetaan merkkijonon maksimipituus. Esimerkiksi VARCHAR(100) tarkoittaa merkkijonoa, jossa saa olla enintään 100 merkkiä.
+The types and their properties depend on the database system we are using. Usually there are several options even for integers and strings. In practice though, types `INTEGER` for integers and `TEXT` for strings go a long way.
 
-Tämä on jälleen yksi muistuma vanhan ajan ohjelmoinnista: ennen vanhaan merkkijono tallennettiin usein taulukkona, jossa on kiinteä määrä merkkejä. Käytännössä kuitenkin TEXT on kätevämpi, koska meidän ei tarvitse keksiä, montako merkkiä sarakkeessa olevassa merkkijonossa saa olla enintään.
+## TEXT vs. VARCHAR
+Traditional SQL type for saving a string is `VARCHAR`, where we give the maximum length of the string. For example `VARCHAR(100)` means a string, which can have at most 100 characters.
 
-Kokonaisluvun ja merkkijonon lisäksi kolmas usein hyödyllinen tyyppi on aikatyyppi, johon voi tallentaa päivämäärän ja kellonajan. Tämän tyypin nimi ja käyttötavat vaihtelevat kuitenkin käytetyn tietokantajärjestelmän mukaan, joten yksityiskohdat on tarkastettava tietokannan dokumentaatiosta.
+This is one remainder of the programming from old times: back then the strings were often saved as an array, with a fixed amount of characters. In practice `TEXT` is more versatile as we do not have to come up with the maximum amount of characters.
 
-Lausekkeet
-Lauseke on SQL-komennon osa, jolla on tietty arvo. Esimerkiksi kyselyssä
+## DATE, DATETIME, TIME, TIMESTAMP...
 
-SELECT hinta FROM Tuotteet WHERE nimi='retiisi';
-on kaksi lauseketta: hinta ja nimi='retiisi'. Tässä lauseke hinta määrittää tulostaulun rivien sisällön, kun taas lauseke nimi='retiisi' on ehtolauseke, joka rajoittaa kyselyä.
+Very useful types of data are the types used for saving `DATE` and `TIME`. The naming and usage vary from database system to another, so it is best to check the details from the documentation of the databasey system we are using.
 
-Voimme käyttää lausekkeissa laskutoimituksia ja muita operaattoreita samaan tapaan kuin ohjelmoinnissa. Esimerkiksi kysely
+# Statements
 
-SELECT hinta*2 FROM Tuotteet WHERE nimi='retiisi';
-antaa retiisin hinnan kaksinkertaisena.
+Statements are a part of SQL command, with a certain value. For example in query
 
-Hyvä tapa testata SQL:n lausekkeiden toimintaa on keskustella tietokannan kanssa tekemällä kyselyitä, jotka eivät hae tietoa mistään taulusta vaan laskevat vain tietyn lausekkeen arvon. Keskustelu voi näyttää vaikkapa seuraavalta:
+```sql
+SELECT price FROM Products WHERE name='radish';
+```
 
+Has two statements: `price` and `name='radish'`. In this the statement `price` defines the content of the result set, and the statement `name='radish'` is a conditional statement to limit the query.
+
+We can also use calculations and other operators the same way as in programming. For example the query
+
+```sql
+SELECT price*2 FROM Products WHERE name='radish';
+```
+
+returns the price of the radish doubled.
+
+A good way to test how SQL statements work is to discuss with the database by doing queries which do not search information from any tables, but only calculate values for statements. This could be something like
+
+```
 sqlite> SELECT 2*(1+3);
 8
-sqlite> SELECT 'tes' || 'ti';
-testi
+sqlite> SELECT 'tes' || 'ts';
+tests
 sqlite> SELECT 3 < 5;
 1
-Ensimmäinen kysely laskee lausekkeen 2*(1+3) arvon. Toinen kysely yhdistää ||-operaattorilla merkkijonot 'tes' ja 'ti' merkkijonoksi 'testi'. Kolmas kysely puolestaan määrittää ehtolausekkeen 3 < 5 arvon. Käytäntönä SQL:ssä on, että kokonaisluku ilmaisee totuusarvon: 1 on tosi ja 0 on epätosi.
+```
 
-Monet SQL:n lausekkeisiin liittyvät asiat ovat tuttuja ohjelmoinnista:
+The first query calculates the value for statement `2*(1+3)`. The second query combines with the operator `||` the strings 'tes' and 'ts'. into 'tests'. Third query defines the truth value for statement `3 < 5`. The practice in SQL is that the truth value is given as an integer: `1 is true`, and `0 is false`.
 
-laskutoimitukset: +, -, *, /, %
-vertaileminen: =, <>, <, <=, >, >=
-ehtojen yhdistys: AND, OR, NOT
-Näiden lisäksi SQL:ssä on kuitenkin myös erikoisempia ominaisuuksia, joiden tuntemisesta on välillä hyötyä. Seuraavassa on joitakin niistä:
+Many items for SQL statements are already familar from programming:
 
-BETWEEN
-Lauseke x BETWEEN a AND b on tosi, jos x on vähintään a ja enintään b. Esimerkiksi kysely
+* calculations: `+`, `-`, `*`, `/`, `%`
+* comparison: `=`, `<>`, `<`, `<=`, `>`, `>=`
+* combining conditions: `AND`, `OR`, `NOT`
 
-SELECT * FROM Tuotteet WHERE hinta BETWEEN 4 AND 6;
-hakee tuotteet, joiden hinta on vähintään 4 ja korkeintaan 6. Voimme toki kirjoittaa samalla tavalla toimivan kyselyn myös näin:
+In addition to these SQL has some more special features, whose knowledge is useful. Next we will look into some of them:
 
-SELECT * FROM Tuotteet WHERE hinta >= 4 AND hinta <= 6;
-CASE
-Rakenne CASE mahdollistaa ehtolausekkeen tekemisen. Siinä voi olla yksi tai useampi WHEN-osa sekä mahdollinen ELSE-osa. Esimerkiksi kysely
+## BETWEEN
+Statement `X BETWEEN a AND b` is true, if `X` is at least `a` and at most `b`. For example the query
 
-SELECT nimi, CASE WHEN hinta>5 THEN 'kallis' ELSE 'halpa' END FROM Tuotteet;
-hakee kunkin tuotteen nimen, sekä tiedon siitä, onko tuote kallis vai halpa. Tässä tuote on kallis, jos sen hinta on yli 5, ja muuten halpa.
+```sql
+SELECT * FROM Products WHERE price BETWEEN 4 AND 6;
+```
 
-IN
-Lauseke x IN (...) on tosi, jos x on jokin annetuista arvoista. Esimerkiksi kysely
+Returns the products, whose price is at least 6 and at maximum 6. We can also write the same query like this:
 
-SELECT * FROM Tuotteet WHERE nimi IN ('lanttu','nauris','selleri');
-hakee tuotteet, joiden nimi on lanttu, nauris tai selleri.
+```sql
+SELECT * FROM Products WHERE price >= 4 AND price <= 6;
+```
 
-LIKE
-Lauseke s LIKE p on tosi, jos merkkijono s vastaa kuvausta p. Kuvauksessa voi käyttää erikoismerkkejä _ (mikä tahansa yksittäinen merkki) sekä % (mikä tahansa määrä mitä tahansa merkkejä). Esimerkiksi kysely
+## CASE
+A `CASE` structure enables conditional statements. It can have one or more `WHEN` and a possible `ELSE`. For example the query
 
-SELECT * FROM Tuotteet WHERE nimi LIKE '%ri%';
-hakee tuotteet, joiden nimen osana esiintyy merkkijono "ri" (kuten nauris ja selleri).
+```sql
+SELECT name, 
+  CASE WHEN price>5 THEN 'expensive' 
+    ELSE 'cheap' 
+  END 
+FROM Products;
+```
 
-NULL
-NULL-arvojen käsittelyä varten on erillinen syntaksi. Esimerkiksi kysely
+Retrieves the name for all the products and the information about them, if they are expensive or cheap. In this query the product is expensive if the price is over 5, otherwise it is cheap.
 
-SELECT * FROM Tuotteet WHERE hinta IS NULL;
-hakee tuotteet, joille ei ole annettu hintaa, ja vastaavasti kysely
+## IN
+Statement `x IN (...)` is true, if `x` is some of the given values. For example the query
 
-SELECT * FROM Tuotteet WHERE hinta IS NOT NULL;
-hakee tuotteet, joille on annettu hinta.
+```sql
+SELECT * FROM Products WHERE name IN ('turnip','cucumber','celery');
+```
 
-Funktiot
-Lausekkeiden osana voi esiintyä myös funktioita samaan tapaan kuin ohjelmoinnissa. Kuten tyyppien yhteydessä, saatavilla olevat funktiot ja niiden käyttötavat riippuvat käytetystä tietokantajärjestelmästä ja lisätiedot on tarkastettava tietokannan dokumentaatiosta.
+Returns the products whose name is turnip, cucumber or celery.
 
-Tässä on esimerkkinä joitakin hyödyllisiä SQLite-tietokannan funktioita:
+## LIKE
+Statement `s LIKE p` is true, if the string `s` matches to the description `p`. In the description we can use special characters `_` (any single character) and `%` (any amount of any characters). For example
 
-funktio	toiminta
-ABS(x)	antaa luvun x itseisarvon
-COALESCE(...)	antaa listan ensimmäisen arvon, joka ei ole NULL (tai NULL, jos arvoa ei ole)
-LENGTH(s)	antaa merkkijonon s pituuden
-LOWER(s)	muuttaa merkkijonon s kirjaimet pieniksi
-MAX(x,y)	antaa suuremman luvuista x ja y
-MIN(x,y)	antaa pienemmän luvuista x ja y
-RANDOM()	antaa satunnaisen luvun
-ROUND(x,d)	antaa luvun x pyöristettynä d desimaalin tarkkuudelle
-UPPER(s)	muuttaa merkkijonon s kirjaimet suuriksi
-Esimerkiksi kysely
+```sql
+SELECT * FROM Products WHERE name LIKE '%er%';
+```
 
-SELECT * FROM Tuotteet WHERE LENGTH(nimi)=6;
-hakee tuotteet, joiden nimessä on kuusi kirjainta (kuten lanttu ja nauris). Kysely
+Returns the products whose name contain the string `er` (such as cucumber and celery).
 
-SELECT * FROM Tuotteet ORDER BY RANDOM();
-puolestaan antaa rivit satunnaisessa järjestyksessä, koska järjestys ei perustu minkään sarakkeen sisältöön vaan satunnaiseen arvoon.
+## NULL
+Handling `NULL` values we have a separate syntax. For example
+
+```sql
+SELECT * FROM Products WHERE price IS NULL;
+```
+
+retrieves the products to which no price has been set, and the query
+
+```sql
+SELECT * FROM Products WHERE price IS NOT NULL;
+```
+
+retrieves the products to which the price has been set.
+
+## Functions
+
+As a part of statements we can have functions, just like in programming. As with types, the functions available and their usage are dependant on the used database system and additional information should be checked from the database system documentation.
+
+Here are some useful SQLite functions:
+
+```
+name	        function
+--------      ----------
+ABS(x)	      returns the absolute value for x
+COALESCE(...)	returns the first value from the list, which is not NULL
+LENGTH(s)	    returns the length of the string s
+LOWER(s)	    changes the characters in string s to lower case
+MAX(x,y)	    returns the greater of integers x and y
+MIN(x,y)	    returns the smaller of integers x and y
+RANDOM()	    returns a random number
+ROUND(x,d)	  returns x rounded to d decimals
+UPPER(s)	    changers the characters in string s to upper case
+```
+
+For example the query
+
+```sql
+SELECT * FROM Products WHERE LENGTH(name)=6;
+```
+
+Returns the products whose name are six characters long (such as carrot, radish, turnip and celery). The query
+
+```sql
+SELECT * FROM Products ORDER BY RANDOM();
+```
+
+Returns the all the rows in random order, since the order is not based on any column but on a random number.
 
 
+# Subqueries
 
 
-
-
-Alikyselyt
 Alikysely on SQL-komennon osana oleva lauseke, jonka arvo syntyy jonkin kyselyn perusteella. Voimme rakentaa alikyselyjä samaan tapaan kuin varsinaisia kyselyjä ja toteuttaa niiden avulla hakuja, joita olisi vaikea saada aikaan muuten.
 
 Esimerkki
 Tarkastellaan esimerkkinä tilannetta, jossa tietokannassa on pelaajien tuloksia taulussa Tulokset. Oletamme, että taulun sisältö on seuraava:
 
-id          nimi        tulos     
+id          name        tulos     
 ----------  ----------  ----------
 1           Uolevi      120       
 2           Maija       80        
@@ -125,10 +172,10 @@ id          nimi        tulos
 5           Kaaleppi    115    
 Haluamme nyt selvittää ne pelaajat, jotka ovat saavuttaneet korkeimman tuloksen, eli kyselyn tulisi palauttaa Uolevi ja Liisa. Saamme tämän aikaan alikyselyllä seuraavasti:
 
-SELECT nimi, tulos FROM Tulokset WHERE tulos = (SELECT MAX(tulos) FROM Tulokset);
+SELECT name, tulos FROM Tulokset WHERE tulos = (SELECT MAX(tulos) FROM Tulokset);
 Kyselyn tuloksena on:
 
-nimi        tulos     
+name        tulos     
 ----------  ----------
 Uolevi      120       
 Liisa       120       
@@ -136,10 +183,10 @@ Tässä tapauksessa alikysely on SELECT MAX(tulos) FROM Tulokset, joka antaa suu
 
 Tässä on vielä vähän mutkikkaampi kysely:
 
-SELECT nimi, tulos FROM Tulokset WHERE tulos >= 0.9*(SELECT MAX(tulos) FROM Tulokset);
+SELECT name, tulos FROM Tulokset WHERE tulos >= 0.9*(SELECT MAX(tulos) FROM Tulokset);
 Tämä kysely näyttää, että voimme käyttää alikyselyn antamaa arvoa lausekkeen osana samaan tapaan kuin mitä tahansa muuta arvoa. Kysely hakee pelaajat, joiden tulos on enintään 10 prosenttia huonompi kuin paras tulos:
 
-nimi        tulos     
+name        tulos     
 ----------  ----------
 Uolevi      120       
 Liisa       120       
@@ -147,29 +194,29 @@ Kaaleppi    115
 Riippuva alikysely
 Alikysely on mahdollista toteuttaa myös niin, että sen sisältö riippuu pääkyselyssä käsiteltävästä rivistä. Näin on seuraavassa kyselyssä:
 
-SELECT nimi, tulos, (SELECT COUNT(*) FROM Tulokset WHERE tulos > T.tulos) paremmat FROM Tulokset T;
+SELECT name, tulos, (SELECT COUNT(*) FROM Tulokset WHERE tulos > T.tulos) paremmat FROM Tulokset T;
 Tämän kyselyn ideana on laskea jokaiselle pelaajalle, monenko pelaajan tulos on parempi kuin pelaajan oma tulos. Esimerkiksi Maijalle vastaus on 3, koska Uolevin, Liisan ja Kaalepin tulos on parempi. Kysely antaa seuraavan tuloksen:
 
-nimi        tulos       paremmat
+name        tulos       paremmat
 ----------  ----------  ----------
 Uolevi      120         0                                                    
 Maija       80          3                                                    
 Liisa       120         0                                                    
 Aapeli      45          4                                                    
 Kaaleppi    115         2                                                   
-Koska taulu Tulokset esiintyy kahdessa roolissa alikyselyssä, pääkyselyn taululle on annettu vaihtoehtoinen nimi T. Tämän ansiosta alikyselyssä on selvää, että halutaan laskea rivejä, joiden tulos on parempi kuin pääkyselyssä käsiteltävän rivin tulos.
+Koska taulu Tulokset esiintyy kahdessa roolissa alikyselyssä, pääkyselyn taululle on annettu vaihtoehtoinen name T. Tämän ansiosta alikyselyssä on selvää, että halutaan laskea rivejä, joiden tulos on parempi kuin pääkyselyssä käsiteltävän rivin tulos.
 
 Monta arvoa alikyselystä
 Alikysely voi palauttaa myös useita arvoja, kunhan alikyselyn tulosta käytetään kohdassa, jossa tämä on sallittua. Näin on seuraavassa kyselyssä:
 
-SELECT nimi FROM Tuotteet
+SELECT name FROM Products
 WHERE id IN (SELECT tuote_id FROM Ostokset WHERE asiakas_id = 1);
 Tämä kysely hakee kaikkien tuotteiden nimet asiakkaan 1 ostoskorissa. Alikysely palauttaa tuotteiden id-numerot, minkä pystyy yhdistämään IN-syntaksiin.
 
 Huomaa, että olisimme voineet rakentaa vastaavan kyselyn myös näin:
 
-SELECT T.nimi
-FROM Tuotteet T, Ostokset O
+SELECT T.name
+FROM Products T, Ostokset O
 WHERE T.id = O.tuote_id AND O.asiakas_id = 1;
 Usein alikysely onkin vaihtoehtoinen tapa toteuttaa jokin kysely, jonka voisi tehdä yhtä hyvin myös esimerkiksi sopivasti laaditulla monen taulun kyselyllä.
 
@@ -188,52 +235,52 @@ Yleisempi muoto on LIMIT x OFFSET y, mikä tarkoittaa, että haluamme x riviä k
 Esimerkki
 Tarkastellaan esimerkkinä kyselyä, joka hakee tuotteita halvimmasta kalleimpaan:
 
-SELECT * FROM Tuotteet ORDER BY hinta;
+SELECT * FROM Products ORDER BY price;
 Kyselyn tuloksena on seuraava tulostaulu:
 
-id          nimi        hinta     
+id          name        price     
 ----------  ----------  ----------
-3           nauris      2
-5           selleri     4         
+3           cucumber      2
+5           celery     4         
 2           porkkana    5         
-1           retiisi     7         
-4           lanttu      8         
+1           radish     7         
+4           turnip      8         
 Saamme haettua kolme halvinta tuotetta seuraavasti:
 
-SELECT * FROM Tuotteet ORDER BY hinta LIMIT 3;
+SELECT * FROM Products ORDER BY price LIMIT 3;
 Kyselyn tulos on seuraava:
 
-id          nimi        hinta     
+id          name        price     
 ----------  ----------  ----------
-3           nauris      2         
-5           selleri     4         
+3           cucumber      2         
+5           celery     4         
 2           porkkana    5      
 Seuraava kysely puolestaan hakee kolme halvinta tuotetta toiseksi halvimmasta tuotteesta alkaen:
 
-SELECT * FROM Tuotteet ORDER BY hinta LIMIT 3 OFFSET 1;
+SELECT * FROM Products ORDER BY price LIMIT 3 OFFSET 1;
 Tämän kyselyn tulos on seuraava:
 
-id          nimi        hinta     
+id          name        price     
 ----------  ----------  ----------
-5           selleri     4         
+5           celery     4         
 2           porkkana    5         
-1           retiisi     7      
+1           radish     7      
 Rajaus alikyselyssä
 Tarkastellaan vielä tilannetta, jossa haluamme laskea kolmen halvimman tuotteen yhteishinnan. Seuraava kysely ei toimi halutulla tavalla:
 
-SELECT SUM(hinta) FROM Tuotteet ORDER BY hinta LIMIT 3;
+SELECT SUM(price) FROM Products ORDER BY price LIMIT 3;
 Kysely antaa kaikkien taulun tuotteiden hintojen summan:
 
-SUM(hinta)
+SUM(price)
 ----------
 26
 Ongelmana on, että kysely muodostaa tulostaulun, jossa on vain yhdellä rivillä luku 26 (kaikkien tuotteiden summa), minkä jälkeen tästä tulostaulusta haetaan kolme ensimmäistä riviä (eli käytännössä vain yksi rivi).
 
 Ratkaisu ongelmaan on luoda alikysely, jossa haetaan kolme halvinta hintaa, ja laskea sitten summa näistä hinnoista:
 
-SELECT SUM(hinta) FROM (SELECT hinta FROM Tuotteet ORDER BY hinta LIMIT 3);
+SELECT SUM(price) FROM (SELECT price FROM Products ORDER BY price LIMIT 3);
 Nyt kysely antaa halutun tuloksen:
 
-SUM(hinta)
+SUM(price)
 ----------
 11

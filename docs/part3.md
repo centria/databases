@@ -62,7 +62,7 @@ Algebra             Niemi
 
 In the query above, compared to previous queries, we are using multiple tables (FROM Courses, Teachers), but what does it mean in practice?
 
-The basic idea is, that when a query has several tables, the starting point of the query is all the possible combinations of all the rows in all the selected tables. After this we use `WHERE` to define, which of the combinations are we interested aP.
+The basic idea is, that when a query has several tables, the starting point of the query is all the possible combinations of all the rows in all the selected tables. After this we use `WHERE` to define, which of the combinations are we interested at.
 
 A good way to understand the functionality with multiple tables is to first examine a query, which gets us all the columns and does not have a `WHERE`. In the example database above the search could be as follows:
 
@@ -220,7 +220,7 @@ There are usually two types of relations between tables:
 1. *One-to-many* relation: A row from *Table A* is connected to a maximum of one row in *Table B*. A row from *Table B* can be connected to many rows in *Table A*.
 2. *Many-to-many* relation: A row from *Table A* can be connected many rows in *Table B*. A row from *Table B* can be connected to many rows in *Table A*. 
 
-In the first case we can add a column to *Table A* which references to *Table B*, as we have previously done. In the second case the situation is more difficult, as a single reference in either table would not be sufficienP. The solution is to create a third table, which contains the information about the references.
+In the first case we can add a column to *Table A* which references to *Table B*, as we have previously done. In the second case the situation is more difficult, as a single reference in either table would not be sufficient. The solution is to create a third table, which contains the information about the references.
 
 ## Example
 
@@ -320,7 +320,7 @@ Maija       3            19
 
 This means, that Uolevi's purchases contain 2 products, with combined price of 9. Maija on the other hand has 3 products with the combined price of 19. Everything looks good... Or does it?
 
-The problem with our query is that is is missing our third customer, Aapeli. We have come across a problem, which we shall sort by the end of this parP.
+The problem with our query is that is is missing our third customer, Aapeli. We have come across a problem, which we shall sort by the end of this part.
 
 
 
@@ -372,7 +372,7 @@ Algorithms          Ahonen
 Algebra             Niemi 
 ```
 
-Solution to this problem is to use `LEFT JOIN` syntax. This means that if a row from the left table does not connect to any row on the right table, the row is still included in the result seP. For that row the values based on the right table is `NULL`.
+Solution to this problem is to use `LEFT JOIN` syntax. This means that if a row from the left table does not connect to any row on the right table, the row is still included in the result set. For that row the values based on the right table is `NULL`.
 
 In our case we could do the query like this:
 
@@ -393,12 +393,12 @@ Scrum masters
 Algebra             Niemi 
 ```
 
-## JOIN queryfamily
+## JOIN query family
 
 `JOIN query` has four variations:
 * `JOIN`: Works just as a regular query joining two tables.
-* `LEFT JOIN`: If the row from the left table does not connect to the right table, it is still chosen to be part of the result seP.
-* `RIGHT JOIN`: If the row from the right table does not connect to the left table, it is still chosen to be part of the result seP.
+* `LEFT JOIN`: If the row from the left table does not connect to the right table, it is still chosen to be part of the result set.
+* `RIGHT JOIN`: If the row from the right table does not connect to the left table, it is still chosen to be part of the result set.
 * `FULL JOIN`: From both left and right table we separately add into the result set those rows, which do not connect to the other table.
 
 For SQLite we can only do the first two ones. Fortunately, `LEFT JOIN` is the most common one (at least on this course, anyways).
@@ -406,7 +406,7 @@ For SQLite we can only do the first two ones. Fortunately, `LEFT JOIN` is the mo
 A Venn diagram representation would be something like this:
 
 ![Venn diagram for SQL joins](https://raw.githubusercontent.com/centria/databases/master/assets/images/sql_joins.jpg) 
-[Source: C.L.Moffatt](https://www.codeprojecP.com/articles/33052/visual-representation-of-sql-joins)
+[Source: C.L.Moffatt](https://www.codeproject.com/articles/33052/visual-representation-of-sql-joins)
 
 This diagram contains more than four variations. `INNER JOIN` is equal to `JOIN`, and `FULL OUTER JOIN` is `FULL JOIN`. The other variations are exclusive alternatives for the queries.
 
