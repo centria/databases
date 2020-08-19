@@ -331,7 +331,7 @@ So far we have gottern information from tables by selectin our tables with `FROM
 
 ## Ways of Query
 
-Next we have two ways of doing the same query, first by the way we already know, and the by using ``JOIN` syntax.
+Next we have two ways of doing the same query, first by the way we already know, and the by using `JOIN` syntax.
 
 ```sql
 SELECT Courses.name, Teachers.name

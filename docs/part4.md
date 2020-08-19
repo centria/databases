@@ -175,7 +175,8 @@ id          name        score
 Now we want to know the players who have achieved the top score, and the query should return Uolevi and Liisa. We can achieve this by subquery like this:
 
 ```sql
-SELECT name, score FROM Results WHERE score = (SELECT MAX(score) FROM Results);
+SELECT name, score FROM Results 
+WHERE score = (SELECT MAX(score) FROM Results);
 ```
 
 And we get:
@@ -192,7 +193,8 @@ In this scenario the subquery is `SELECT MAX(score) FROM Results`, which gives t
 Here's a bit more comlex query:
 
 ```sql
-SELECT name, score FROM Results WHERE score >= 0.9*(SELECT MAX(score) FROM Results);
+SELECT name, score FROM Results 
+WHERE score >= 0.9*(SELECT MAX(score) FROM Results);
 ```
 
 This query shows, that we can use the value from the subquery as part of a statement, just like any other value. The query retrieves the players, whose score is at most 10 percent lower than the the best score:
