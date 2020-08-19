@@ -407,7 +407,7 @@ For SQLite we can only do the first two ones. Fortunately, `LEFT JOIN` is the mo
 
 A Venn diagram representation would be something like this:
 
-![Venn diagram for SQL joins](https://raw.githubusercontenP.com/centria/databases/master/assets/images/sql_joins.jpg) 
+![Venn diagram for SQL joins](https://raw.githubusercontent.com/centria/databases/master/assets/images/sql_joins.jpg) 
 [Source: C.L.Moffatt](https://www.codeprojecP.com/articles/33052/visual-representation-of-sql-joins)
 
 This diagram contains more than four variations. `INNER JOIN` is equal to `JOIN`, and `FULL OUTER JOIN` is `FULL JOIN`. The other variations are exclusive alternatives for the queries.
