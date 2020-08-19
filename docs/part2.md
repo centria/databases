@@ -13,7 +13,7 @@ Next we will familiarize ourselves with the basic SQL commands. With these comma
 
 The command `CREATE TABLE` indeed creates a table, with the desired columns. For example the following command creates the table `Products` with three columns:
 
-```SQL
+```sql
 CREATE TABLE Products (id INTEGER PRIMARY KEY, name TEXT, price INTEGER);
 ```
 
