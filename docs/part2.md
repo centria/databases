@@ -715,7 +715,7 @@ SELECT * FROM Products;
 After this we can redirect the commands from the file to the interpreter as follows:
 
 ```
-$ sqlite3 < komennot.sql
+$ sqlite3 < commands.sql
 id          name        price     
 ----------  ----------  ----------
 1           radish      7         
