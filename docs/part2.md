@@ -343,10 +343,11 @@ The aggregate queries are based on aggregate functions, which perform operations
 
 ```
 name          function
-COUNT()	      counts the amount of rows
-SUM()	        counts the sum of rows
-MIN()	        retrieves the smallest value
-MAX()	        retrieves the largest value
+---------     ---------------------------
+COUNT()       counts the amount of rows
+SUM()         counts the sum of rows
+MIN()         retrieves the smallest value
+MAX()         retrieves the largest value
 AVG()         counts the average
 ```
 ## Examples
