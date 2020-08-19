@@ -163,18 +163,14 @@ In the following tables we have an example of a database, which could be used as
  3   turnip   4  
  4   parsley  8  
  5   celery   4  
-```
 
-```
  Customers 
  id  name  
  --  ------
  1   Uolevi
  2   Maija
  3   Aapeli
-```
 
-```
  Purchases 
  customer_id  product_id
  -----------  ----------

@@ -588,9 +588,6 @@ Notice the difference between `WHERE` and `HAVING`: `WHERE` limits the rows *bef
 
 
 
-
-
-
 # SQLite database
 
 *SQLite* is a simple and openly availabe database system, which is suitable for learning SQL. You can try the basic functions of SQL with SQLite, and we will use it with some of the examples during this course. 
