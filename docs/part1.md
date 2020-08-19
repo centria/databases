@@ -1,5 +1,5 @@
 ---
-title: "Introduction"
+title: "First steps"
 permalink: /part1/
 nav_order: 3
 published: true
@@ -162,7 +162,7 @@ In the following tables we have an example of a database, which could be used as
  2   carrot   5  
  3   turnip   4  
  4   parsley  8  
- 5   celery   5  
+ 5   celery   4  
 ```
 
 ```
