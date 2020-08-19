@@ -168,17 +168,17 @@ WHERE Courses.teacher_id = Teachers.id;
 Can be shortened into:
 
 ```sql
-SELECT C.name, P.name
+SELECT C.name, T.name
 FROM Courses AS C, Teachers AS T
-WHERE C.teacher_id = P.id;
+WHERE C.teacher_id = T.id;
 ```
 
 And as the `AS` is not compulsory, we can even do:
 
 ```sql
-SELECT C.name, P.name
+SELECT C.name, T.name
 FROM Courses C, Teachers T
-WHERE C.teacher_id = P.id;
+WHERE C.teacher_id = T.id;
 ```
 
 ## Repeating a table
@@ -186,7 +186,7 @@ WHERE C.teacher_id = P.id;
 In a query for multiple tables we can use the same table more than once, as long as they are given different names. For example, the following query returns all the possible combinations for choosing how to pair two teachers:
 
 ```sql
-SELECT C.name, B.name FROM Teachers A, Teachers B;
+SELECT A.name, B.name FROM Teachers A, Teachers B;
 ```
 
 Query returns as follows:
@@ -224,10 +224,9 @@ In the first case we can add a column to *Table A* which references to *Table B*
 
 ## Example
 
-Let's examine a situation, where a webshop has products and customers, and each customer has selected a certain amount of products into their shopping carP. A certain customer can have several products, and also same product can be in several customers' carts.
+Let's examine a situation, where a webshop has products and customers, and each customer has selected a certain amount of products into their shopping cart. A certain customer can have several products, and also same product can be in several customers' carts.
 
-We will build our database so that it has three tables:
-Rakennamme tietokannan niin, että siinä on kolme taulua: Products, Customers ja Purchases. The *junction table* Purchases identicats, which products are in which customer's shopping carts. Each row for it is a representation of a pair *"customer X's cart contains product Y"*.
+We will build our database so that it has three tables: Products, Customers and Purchases. The *junction table* Purchases identicates, which products are in which customer's shopping carts. Each row for it is a representation of a pair *"customer X's cart contains product Y"*.
 
 We assume our tables to have the following content:
 
@@ -307,7 +306,6 @@ GROUP BY C.id;
 
 ## How are we grouping?
 In this query the grouping is done by the column `C.id`, but in the query we are searching with the column `C.name`. This is reasonable, as the column `C.id` dictates the column `C.name`, and the query works fine in SQLite.  
-Miten ryhmitellään?
 
 In other databases (such as PostgreSQL) the requirement might be, that the column we are searching as such should also be in the grouping. Then the grouping should be `GROUP BY C.id, C.name`
 
@@ -447,7 +445,7 @@ We declared our aggregate of purchases with the following query:
 
 ```sql
 SELECT C.name, COUNT(P.id), SUM(P.price)
-FROM Customers C, Products T, Purchases O
+FROM Customers C, Products P, Purchases O
 WHERE C.id = O.customer_id AND P.id = O.product_id
 GROUP BY C.id;
 ```
@@ -467,7 +465,7 @@ The cause for our problem is that Aapeli does not have any purchases, so when th
 SELECT C.name, COUNT(P.id), SUM(P.price)
 FROM Customers C LEFT JOIN Purchases O 
     ON C.id = O.customer_id
-LEFT JOIN Products T 
+LEFT JOIN Products P 
     ON P.id = O.product_id
 GROUP BY C.id;
 ```
