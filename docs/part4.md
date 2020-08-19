@@ -127,17 +127,17 @@ As a part of statements we can have functions, just like in programming. As with
 Here are some useful SQLite functions:
 
 ```
-name	        function
+name          function
 --------      ----------
-ABS(x)	      returns the absolute value for x
-COALESCE(...)	returns the first value from the list, which is not NULL
-LENGTH(s)	    returns the length of the string s
-LOWER(s)	    changes the characters in string s to lower case
-MAX(x,y)	    returns the greater of integers x and y
-MIN(x,y)	    returns the smaller of integers x and y
-RANDOM()	    returns a random number
-ROUND(x,d)	  returns x rounded to d decimals
-UPPER(s)	    changers the characters in string s to upper case
+ABS(x)        returns the absolute value for x
+COALESCE(...) returns the first value from the list, which is not NULL
+LENGTH(s)     returns the length of the string s
+LOWER(s)      changes the characters in string s to lower case
+MAX(x,y)      returns the greater of integers x and y
+MIN(x,y)      returns the smaller of integers x and y
+RANDOM()      returns a random number
+ROUND(x,d)    returns x rounded to d decimals
+UPPER(s)     changers the characters in string s to upper case
 ```
 
 For example the query
@@ -156,131 +156,189 @@ Returns the all the rows in random order, since the order is not based on any co
 
 
 # Subqueries
+Subqueries are a statement used as a part of a SQL command, whose value is determined by a query. We can build subqueries in the same manner as main queries and produce queries with them, which could be difficult to achieve otherwise. 
 
+## Example
 
-Alikysely on SQL-komennon osana oleva lauseke, jonka arvo syntyy jonkin kyselyn perusteella. Voimme rakentaa alikyselyjä samaan tapaan kuin varsinaisia kyselyjä ja toteuttaa niiden avulla hakuja, joita olisi vaikea saada aikaan muuten.
+Let's look at a situation, where the database has a table for players' scores in the table `Results`. We assume the table is following:
 
-Esimerkki
-Tarkastellaan esimerkkinä tilannetta, jossa tietokannassa on pelaajien tuloksia taulussa Tulokset. Oletamme, että taulun sisältö on seuraava:
-
-id          name        tulos     
+```
+id          name        score     
 ----------  ----------  ----------
 1           Uolevi      120       
 2           Maija       80        
 3           Liisa       120       
 4           Aapeli      45        
 5           Kaaleppi    115    
-Haluamme nyt selvittää ne pelaajat, jotka ovat saavuttaneet korkeimman tuloksen, eli kyselyn tulisi palauttaa Uolevi ja Liisa. Saamme tämän aikaan alikyselyllä seuraavasti:
+``` 
 
-SELECT name, tulos FROM Tulokset WHERE tulos = (SELECT MAX(tulos) FROM Tulokset);
-Kyselyn tuloksena on:
+Now we want to know the players who have achieved the top score, and the query should return Uolevi and Liisa. We can achieve this by subquery like this:
 
-name        tulos     
+```sql
+SELECT name, score FROM Results WHERE score = (SELECT MAX(score) FROM Results);
+```
+
+And we get:
+
+```
+name        score     
 ----------  ----------
 Uolevi      120       
 Liisa       120       
-Tässä tapauksessa alikysely on SELECT MAX(tulos) FROM Tulokset, joka antaa suurimman taulussa olevan tuloksen eli tässä tapauksessa arvon 120. Huomaa, että alikysely tulee kirjoittaa sulkujen sisään, jotta se ei sekoitu pääkyselyyn.
+```
 
-Tässä on vielä vähän mutkikkaampi kysely:
+In this scenario the subquery is `SELECT MAX(score) FROM Results`, which gives the largest score in the table, in this case 120. Notice, that the subquery has to be enclosed brackets, so that it does not mix up with the outer query.
 
-SELECT name, tulos FROM Tulokset WHERE tulos >= 0.9*(SELECT MAX(tulos) FROM Tulokset);
-Tämä kysely näyttää, että voimme käyttää alikyselyn antamaa arvoa lausekkeen osana samaan tapaan kuin mitä tahansa muuta arvoa. Kysely hakee pelaajat, joiden tulos on enintään 10 prosenttia huonompi kuin paras tulos:
+Here's a bit more comlex query:
 
-name        tulos     
+```sql
+SELECT name, score FROM Results WHERE score >= 0.9*(SELECT MAX(score) FROM Results);
+```
+
+This query shows, that we can use the value from the subquery as part of a statement, just like any other value. The query retrieves the players, whose score is at most 10 percent lower than the the best score:
+
+```
+name        score     
 ----------  ----------
 Uolevi      120       
 Liisa       120       
 Kaaleppi    115     
-Riippuva alikysely
-Alikysely on mahdollista toteuttaa myös niin, että sen sisältö riippuu pääkyselyssä käsiteltävästä rivistä. Näin on seuraavassa kyselyssä:
+```
 
-SELECT name, tulos, (SELECT COUNT(*) FROM Tulokset WHERE tulos > T.tulos) paremmat FROM Tulokset T;
-Tämän kyselyn ideana on laskea jokaiselle pelaajalle, monenko pelaajan tulos on parempi kuin pelaajan oma tulos. Esimerkiksi Maijalle vastaus on 3, koska Uolevin, Liisan ja Kaalepin tulos on parempi. Kysely antaa seuraavan tuloksen:
+## Correlated or synchronized subquery
 
-name        tulos       paremmat
+A subquery is also possible to create so, that its content is dependant or a row in the outer query. For example:
+
+```sql
+SELECT name, score, 
+  (SELECT COUNT(*) FROM Results WHERE score > R.score) better 
+  FROM Results R;
+```
+
+The idea for this query is to calculate for each player, how many players have a better score than them. For example for Maija the answer is 3, since Uolevi, Liisa and Kaaleppi have better scores. We get the following result set:
+
+```
+name        score       better
 ----------  ----------  ----------
 Uolevi      120         0                                                    
 Maija       80          3                                                    
 Liisa       120         0                                                    
 Aapeli      45          4                                                    
 Kaaleppi    115         2                                                   
-Koska taulu Tulokset esiintyy kahdessa roolissa alikyselyssä, pääkyselyn taululle on annettu vaihtoehtoinen name T. Tämän ansiosta alikyselyssä on selvää, että halutaan laskea rivejä, joiden tulos on parempi kuin pääkyselyssä käsiteltävän rivin tulos.
+```
 
-Monta arvoa alikyselystä
-Alikysely voi palauttaa myös useita arvoja, kunhan alikyselyn tulosta käytetään kohdassa, jossa tämä on sallittua. Näin on seuraavassa kyselyssä:
+Because the table Results is in two roles in the subquery, we have given the table Results additional name R. With this in the subquery it is clear that we want to count rows, whose score is better than the row score from the outer query.
 
+## Multiple values in subquery
+
+Subquery can also return multiple values, as long as the result from the subquery are used in a location where this is allowed. This works in for example:
+
+```sql
 SELECT name FROM Products
-WHERE id IN (SELECT tuote_id FROM Ostokset WHERE asiakas_id = 1);
-Tämä kysely hakee kaikkien tuotteiden nimet asiakkaan 1 ostoskorissa. Alikysely palauttaa tuotteiden id-numerot, minkä pystyy yhdistämään IN-syntaksiin.
+WHERE id IN (SELECT product_id FROM Purchases WHERE customer_id = 1);
+```
 
-Huomaa, että olisimme voineet rakentaa vastaavan kyselyn myös näin:
+This query retrieves all the names for products in customer 1's shopping cart. The subquery returns the id values for the products, which can be combined with the IN syntax.
 
-SELECT T.name
-FROM Products T, Ostokset O
-WHERE T.id = O.tuote_id AND O.asiakas_id = 1;
-Usein alikysely onkin vaihtoehtoinen tapa toteuttaa jokin kysely, jonka voisi tehdä yhtä hyvin myös esimerkiksi sopivasti laaditulla monen taulun kyselyllä.
+Notice, that we could have done the query also like this:
 
+```sql
+SELECT P.name
+FROM Products P, Purchases O
+WHERE P.id = O.product_id AND O.customer_id = 1;
+```
 
+Often a subquery is an alternative way to produce a query, which could just as well be done with for example properly designed multiple table query.
 
+# Limiting results
+SQL query by default returns all the rows mathcing its conditions, but we can ask for only a part of the rows when needed. This is useful for example in applications, where we only want to show a part of the results per page.
 
+## Ways of limiting
 
-Tulosrivien rajaus
-SQL-kysely palauttaa oletuksena kaikki ehtoihin täsmäävät rivit, mutta voimme tarvittaessa pyytää vain osan tulostaulun riveistä. Tämä on hyödyllistä esimerkiksi sovelluksissa, joissa halutaan näyttää yhdellä sivulla vain osa haun tuloksista.
+When we add `LIMIT x` to the end of a query, the query only returns `x` first rows. For example `LIMIT 3` means, that the query only shows the first three rows of the result set.
 
-Rajaustavat
-Kun lisäämme kyselyn loppuun LIMIT x, kysely antaa vain x ensimmäistä tulosriviä. Esimerkiksi LIMIT 3 tarkoittaa, että kysely antaa kolme ensimmäistä tulosriviä.
+A more common form is `LIMIT x OFFSET y`, which means that we want `x` rows starting from position `y` (with 0 indexing, of course). For example `LIMIT 3 OFFSET 1` means that the result set contains second, third and fourth rows.
 
-Yleisempi muoto on LIMIT x OFFSET y, mikä tarkoittaa, että haluamme x riviä kohdasta y alkaen (0-indeksoituna). Esimerkiksi LIMIT 3 OFFSET 1 tarkoittaa, että kysely antaa toisen, kolmannen ja neljännen tulosrivin.
+## Example
 
-Esimerkki
-Tarkastellaan esimerkkinä kyselyä, joka hakee tuotteita halvimmasta kalleimpaan:
+Let's see an example query, which returns the products from cheapest to most expensive:
 
+```sql
 SELECT * FROM Products ORDER BY price;
-Kyselyn tuloksena on seuraava tulostaulu:
+```
 
+We get the following result set:
+
+```
 id          name        price     
 ----------  ----------  ----------
-3           cucumber      2
-5           celery     4         
-2           porkkana    5         
-1           radish     7         
+3           cucumber    2
+5           celery      4         
+2           carrot      5         
+1           radish      7         
 4           turnip      8         
-Saamme haettua kolme halvinta tuotetta seuraavasti:
+```
 
+We can get the cheapest three as follows:
+
+```sql
 SELECT * FROM Products ORDER BY price LIMIT 3;
-Kyselyn tulos on seuraava:
+```
 
+And the result is:
+
+```
 id          name        price     
 ----------  ----------  ----------
-3           cucumber      2         
-5           celery     4         
-2           porkkana    5      
-Seuraava kysely puolestaan hakee kolme halvinta tuotetta toiseksi halvimmasta tuotteesta alkaen:
+3           cucumber    2         
+5           celery      4         
+2           carrot      5      
+```
 
+The next query in turn gets the three cheapest products, starting from the second cheapest:
+
+```sql
 SELECT * FROM Products ORDER BY price LIMIT 3 OFFSET 1;
-Tämän kyselyn tulos on seuraava:
+```
 
+And the result is:
+
+```
 id          name        price     
 ----------  ----------  ----------
-5           celery     4         
-2           porkkana    5         
-1           radish     7      
-Rajaus alikyselyssä
-Tarkastellaan vielä tilannetta, jossa haluamme laskea kolmen halvimman tuotteen yhteishinnan. Seuraava kysely ei toimi halutulla tavalla:
+5           celery      4         
+2           carrot      5         
+1           radish      7      
+```
 
+## Limiting subquery
+
+Let's look at a situation, where we want the combined price of the three cheapest products. The following query does not work like we would want:
+
+```sql
 SELECT SUM(price) FROM Products ORDER BY price LIMIT 3;
-Kysely antaa kaikkien taulun tuotteiden hintojen summan:
+```
 
+This returns the price of all the products in the table:
+
+```
 SUM(price)
 ----------
 26
-Ongelmana on, että kysely muodostaa tulostaulun, jossa on vain yhdellä rivillä luku 26 (kaikkien tuotteiden summa), minkä jälkeen tästä tulostaulusta haetaan kolme ensimmäistä riviä (eli käytännössä vain yksi rivi).
+```
 
-Ratkaisu ongelmaan on luoda alikysely, jossa haetaan kolme halvinta hintaa, ja laskea sitten summa näistä hinnoista:
+The problem is that the query forms the return set, where only one row containing the value 26 (sum of all products), after which we select the first three rows of the result set (in practice, the only row there is).
 
+We can solve this with a subquery, where we get the three cheapest prices, and calculate the sum of these:
+
+```sql
 SELECT SUM(price) FROM (SELECT price FROM Products ORDER BY price LIMIT 3);
-Nyt kysely antaa halutun tuloksen:
+```
 
+Now we get the desired result:
+
+```
 SUM(price)
 ----------
 11
+```
