@@ -62,7 +62,7 @@ Algebra             Niemi
 
 In the query above, compared to previous queries, we are using multiple tables (FROM Courses, Teachers), but what does it mean in practice?
 
-The basic idea is, that when a query has several tables, the starting point of the query is all the possible combinations of all the rows in all the selected tables. After this we use `WHERE` to define, which of the combinations are we interested at.
+The basic idea is, that when a query has several tables, the starting point of the query is all the possible combinations of all the rows in all the selected tables. After this we use `WHERE` to define, which of the combinations are we interested aP.
 
 A good way to understand the functionality with multiple tables is to first examine a query, which gets us all the columns and does not have a `WHERE`. In the example database above the search could be as follows:
 
@@ -168,17 +168,17 @@ WHERE Courses.teacher_id = Teachers.id;
 Can be shortened into:
 
 ```sql
-SELECT C.name, T.name
+SELECT C.name, P.name
 FROM Courses AS C, Teachers AS T
-WHERE C.teacher_id = T.id;
+WHERE C.teacher_id = P.id;
 ```
 
 And as the `AS` is not compulsory, we can even do:
 
 ```sql
-SELECT C.name, T.name
+SELECT C.name, P.name
 FROM Courses C, Teachers T
-WHERE C.teacher_id = T.id;
+WHERE C.teacher_id = P.id;
 ```
 
 ## Repeating a table
@@ -186,7 +186,7 @@ WHERE C.teacher_id = T.id;
 In a query for multiple tables we can use the same table more than once, as long as they are given different names. For example, the following query returns all the possible combinations for choosing how to pair two teachers:
 
 ```sql
-SELECT A.name, B.name FROM Teachers A, Teachers B;
+SELECT C.name, B.name FROM Teachers A, Teachers B;
 ```
 
 Query returns as follows:
@@ -220,11 +220,11 @@ There are usually two types of relations between tables:
 1. *One-to-many* relation: A row from *Table A* is connected to a maximum of one row in *Table B*. A row from *Table B* can be connected to many rows in *Table A*.
 2. *Many-to-many* relation: A row from *Table A* can be connected many rows in *Table B*. A row from *Table B* can be connected to many rows in *Table A*. 
 
-In the first case we can add a column to *Table A* which references to *Table B*, as we have previously done. In the second case the situation is more difficult, as a single reference in either table would not be sufficient. The solution is to create a third table, which contains the information about the references.
+In the first case we can add a column to *Table A* which references to *Table B*, as we have previously done. In the second case the situation is more difficult, as a single reference in either table would not be sufficienP. The solution is to create a third table, which contains the information about the references.
 
 ## Example
 
-Let's examine a situation, where a webshop has products and customers, and each customer has selected a certain amount of products into their shopping cart. A certain customer can have several products, and also same product can be in several customers' carts.
+Let's examine a situation, where a webshop has products and customers, and each customer has selected a certain amount of products into their shopping carP. A certain customer can have several products, and also same product can be in several customers' carts.
 
 We will build our database so that it has three tables:
 Rakennamme tietokannan niin, että siinä on kolme taulua: Products, Customers ja Purchases. The *junction table* Purchases identicats, which products are in which customer's shopping carts. Each row for it is a representation of a pair *"customer X's cart contains product Y"*.
@@ -301,7 +301,7 @@ We can use aggregate functions and groupings for queries with multiple tables as
 ```sql
 SELECT C.name, COUNT(P.id), SUM(P.price)
 FROM Customers C, Products P, Purchases O
-WHERE C.id = O.customer_id AND T.id = O.product_id
+WHERE C.id = O.customer_id AND P.id = O.product_id
 GROUP BY C.id;
 ```
 
@@ -314,7 +314,7 @@ In other databases (such as PostgreSQL) the requirement might be, that the colum
 The idea of this query is to group the rows by the customer's `id`, when the function `COUNT(P.id)` gives the amount of products in the customer's cart and the function `SUM(P.price)` gives the total amount for said products. Our result set is as follows:
 
 ```
-name        COUNT(T.id)  SUM(T.price)
+name        COUNT(P.id)  SUM(P.price)
 ----------  -----------  ------------
 Uolevi      2            9           
 Maija       3            19          
@@ -322,7 +322,7 @@ Maija       3            19
 
 This means, that Uolevi's purchases contain 2 products, with combined price of 9. Maija on the other hand has 3 products with the combined price of 19. Everything looks good... Or does it?
 
-The problem with our query is that is is missing our third customer, Aapeli. We have come across a problem, which we shall sort by the end of this part.
+The problem with our query is that is is missing our third customer, Aapeli. We have come across a problem, which we shall sort by the end of this parP.
 
 
 
@@ -374,7 +374,7 @@ Algorithms          Ahonen
 Algebra             Niemi 
 ```
 
-Solution to this problem is to use `LEFT JOIN` syntax. This means that if a row from the left table does not connect to any row on the right table, the row is still included in the result set. For that row the values based on the right table is `NULL`.
+Solution to this problem is to use `LEFT JOIN` syntax. This means that if a row from the left table does not connect to any row on the right table, the row is still included in the result seP. For that row the values based on the right table is `NULL`.
 
 In our case we could do the query like this:
 
@@ -399,41 +399,86 @@ Algebra             Niemi
 
 `JOIN query` has four variations:
 * `JOIN`: Works just as a regular query joining two tables.
-* `LEFT JOIN`: If the row from the left table does not connect to the right table, it is still chosen to be part of the result set.
-* `RIGHT JOIN`: If the row from the right table does not connect to the left table, it is still chosen to be part of the result set.
+* `LEFT JOIN`: If the row from the left table does not connect to the right table, it is still chosen to be part of the result seP.
+* `RIGHT JOIN`: If the row from the right table does not connect to the left table, it is still chosen to be part of the result seP.
 * `FULL JOIN`: From both left and right table we separately add into the result set those rows, which do not connect to the other table.
 
 For SQLite we can only do the first two ones. Fortunately, `LEFT JOIN` is the most common one (at least on this course, anyways).
 
+A Venn diagram representation would be something like this:
 
+![Venn diagram for SQL joins](https://raw.githubusercontenP.com/centria/databases/master/assets/images/sql_joins.jpg) 
+[Source: C.L.Moffatt](https://www.codeprojecP.com/articles/33052/visual-representation-of-sql-joins)
 
-Puuttuva tieto yhteenvedossa
-Nyt voimme pureutua edellisen aliluvun ongelmaan, jossa yhteenvetokyselystä puuttui tietoa. Tietokannassamme on seuraavat taulut:
+This diagram contains more than four variations. `INNER JOIN` is equal to `JOIN`, and `FULL OUTER JOIN` is `FULL JOIN`. The other variations are exclusive alternatives for the queries.
 
+## Missing information in aggregate query
 
-Muodostimme yhteenvedon ostoskoreista seuraavalla kyselyllä:
+Now we can tackle the problem of missing Aapeli. In our database we have the following tables:
 
-SELECT A.name, COUNT(T.id), SUM(T.price)
-FROM Customers A, Products T, Purchases O
-WHERE A.id = O.customer_id AND T.id = O.product_id
-GROUP BY A.id;
-Kuitenkin ongelmaksi tuli, että Aapeli puuttuu yhteenvedosta:
+```
+ Products 
+ id  name     price
+ --  ------   -----
+ 1   radish   7  
+ 2   carrot   5  
+ 3   turnip   4  
+ 4   parsley  8  
+ 5   celery   4  
 
-name        COUNT(T.id)  SUM(T.price)
+ Customers 
+ id  name  
+ --  ------
+ 1   Uolevi
+ 2   Maija
+ 3   Aapeli
+
+ Purchases 
+ customer_id  product_id
+ -----------  ----------
+ 1            2
+ 1            5
+ 2            1
+ 2            4
+ 2            5
+```
+
+We declared our aggregate of purchases with the following query:
+
+```sql
+SELECT C.name, COUNT(P.id), SUM(P.price)
+FROM Customers C, Products T, Purchases O
+WHERE C.id = O.customer_id AND P.id = O.product_id
+GROUP BY C.id;
+```
+
+We ended up missing Aapeli from our result set:
+
+```
+name        COUNT(P.id)  SUM(P.price)
 ----------  -----------  ------------
 Uolevi      2            9
 Maija       3            19
-Ongelman syynä on, että Aapelin ostoskori on tyhjä eli kun kysely valitsee yhdistelmiä taulujen riveistä, ei ole mitään sellaista riviä, jolla esiintyisi Aapeli. Ratkaisu ongelmaan on käyttää LEFT JOIN -syntaksia näin:
+```
 
-SELECT A.name, COUNT(T.id), SUM(T.price)
-FROM Customers A LEFT JOIN Purchases O ON A.id = O.customer_id
-                 LEFT JOIN Products T ON T.id = O.product_id
-GROUP BY A.id;
-Nyt myös Aapeli ilmestyy mukaan yhteenvetoon:
+The cause for our problem is that Aapeli does not have any purchases, so when the query selects combinations from rows, there are no such rows where Aapeli would be present. The solution is to use `LEFT JOIN` like this:
 
-name        COUNT(T.id)  SUM(T.price)
+```sql
+SELECT C.name, COUNT(P.id), SUM(P.price)
+FROM Customers C LEFT JOIN Purchases O 
+    ON C.id = O.customer_id
+LEFT JOIN Products T 
+    ON P.id = O.product_id
+GROUP BY C.id;
+```
+Now we also get Aapeli into our results:
+
+```
+name        COUNT(P.id)  SUM(P.price)
 ----------  -----------  ------------
 Uolevi      2            9           
 Maija       3            19          
 Aapeli      0                     
-Koska Aapelin ostoskorissa ei ole tuotteita, hintojen summaksi tulee NULL.
+```
+
+As Aapeli has no purchases, the sum of the prices is `NULL`.
