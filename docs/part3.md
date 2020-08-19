@@ -1,11 +1,11 @@
 ---
-title: "Multible tables"
+title: "Multiple tables"
 permalink: /part3/
 nav_order: 4
 published: true
 ---
 
-# Multible tables
+# Multiple tables
 
 
 Viittaukset ja kyselyt
