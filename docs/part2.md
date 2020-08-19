@@ -7,7 +7,7 @@ published: true
 
 # Basic commands
 
-Nesxt we will familiarize ourselves with the basic SQL commands. With these commands we add, search, change and delete contents from the database. Usually the combination of these commands are known with other names, however. **C**reate, **R**ead, **U**pdate and **D**elete, or **CRUD**, forms the basic functionality of database usage, especially in documentation.
+Next we will familiarize ourselves with the basic SQL commands. With these commands we add, search, change and delete contents from the database. Usually the combination of these commands are known with other names, however. **C**reate, **R**ead, **U**pdate and **D**elete, or **CRUD**, forms the basic functionality of database usage, especially in documentation.
 
 ## Creating a table
 
@@ -47,8 +47,6 @@ id          name        price
 
 If we do not give a value to a column, it gets a default value. In a regular column the default value is `NULL`, which means the data does not exist. For example in the following command we do not give a value to the column price:
 
-
-Jos emme anna arvoa jollekin sarakkeelle, se saa oletusarvon. Tavallisessa sarakkeessa oletusarvo on NULL, mikä tarkoittaa tiedon puuttumista. Esimerkiksi seuraavassa komennossa emme anna arvoa sarakkeelle price:
 
 ```sql
 INSERT INTO Products (name) VALUES ('radish');
