@@ -85,7 +85,7 @@ What happens, if the bank has a million customers, and the accounts of said cust
 
 There is a critical design flaw conserning efficiency in our database: when we want to know the balance of a customer, we have to go through all the lines in the file. When the database grows, this becomes extremely slow.
 
-In practice, problems with efficiency are shown to customers as the software using the database working slowly. For example in this case, Maija would probably wais for a minute, before she could see her balance from the bank.
+In practice, problems with efficiency are shown to customers as the software using the database working slowly. For example in this case, Maija would probably wais for a minute, before they could see their balance from the bank.
 
 ## Concurrency
 
@@ -113,7 +113,7 @@ OWNER: Aapeli
 OWNER: Liisa
 ```
 
-Now Liisa has put in the first two lines, then Aapeli all three of his and finally one more line from Liisa. With this it is impossible to know, which account is whose, and the data in our database is *corrupted*.
+Now Liisa has put in the first two lines, then Aapeli all three of theirs and finally one more line from Liisa. With this it is impossible to know, which account is whose, and the data in our database is *corrupted*.
 
 ## Suprises
 
