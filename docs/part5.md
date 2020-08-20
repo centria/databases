@@ -61,12 +61,14 @@ aapeli      maija
 
 Now the table `Users` looks like this:
 
+```
 id          username      total
 ----------  ----------  ----------
 1           uolevi      2
 2           maija       1
 3           liisa       0
 4           aapeli      2
+```
 
 Now we can easily solve, on whose lists Maija is:
 
