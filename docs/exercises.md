@@ -50,5 +50,6 @@ The exercises can be found here: [https://centria.github.io/sql-exercises/](http
 * Add your query to the answer box and press "Submit"
 * If your answer is correct, you get a green text *Your query is correct*
   * If it is incorrect, you will get *Your query is incorrect* in red. Try again until you pass the exercise.
+    * You can ask for help in Slack.
 * Copy your query to your answer file
 * Send the answers before the deadline to the teacher.
