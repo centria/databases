@@ -7,10 +7,10 @@ published: true
 
 The exercises are stuctured as follows:
 
-* [Exercises 1-20](https://centria.github.io/sql-exercises/#1) are for Part 2
-* [Exercises 21-40](https://centria.github.io/sql-exercises/#21) are for Part 3
-* [Exercises 41-60](https://centria.github.io/sql-exercises/#41) are for Part 4
-* [Exercises 61-100](https://centria.github.io/sql-exercises/#61) are more advanced
+* [Exercises 1-20](https://centria.github.io/sql-exercises/#1) are for *SQL Basics*
+* [Exercises 21-40](https://centria.github.io/sql-exercises/#21) are for *Multiple tables*
+* [Exercises 41-60](https://centria.github.io/sql-exercises/#41) are for *More techniques*
+* [Exercises 61-100](https://centria.github.io/sql-exercises/#61) are more advanced from all topics
 
 To pass the course, you have to have at least **50 exercises** correctly done. The grading is as follows:
 
