@@ -361,7 +361,7 @@ id          name               teacher_id
 ```     
 
 On row 4 column `teacher_id` the value is `NULL`, so if we do either of the queries from before, the row 4 does not match any of the rows for table `Teachers`. Because of this the result set does not contain the row for Scrum masters:
-Rivin 4 sarakkeessa teacher_id on arvo NULL, joten jos suoritamme jommankumman äskeisen kyselyn, ongelmaksi tulee, että rivi 4 ei täsmää mihinkään taulun Teachers riviin. Tämän seurauksena tulostauluun ei tule riviä kurssista Scrum mastersrusteet:
+
 
 ```
 name                name      

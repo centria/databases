@@ -218,7 +218,6 @@ id           name        address
 ```
 
 Since we added a new column, existing rows do not contain any information in that column. The data can be changed after this with the `UPDATE` command.
-Koska tauluun lisättiin uusi sarake, olemassa olevilla riveillä ei ole mitään tietoa siinä. Tietoa voi kuitenkin päivittää tämän jälkeen UPDATE-komennolla.
 
 The usage of `ALTER TABLE` depends on the database system, and once again more information can be found from the database system documentation. In SQLite the command is quite limited, compared to for example PostgreSQL.
 
