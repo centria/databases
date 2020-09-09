@@ -17,7 +17,7 @@ To pass the course, you have to have at least **50 exercises** correctly done. T
 * Grade 1: 50-57 exercises
 * Grade 2: 58-65 exercises
 * Grade 3: 66-73 exercises
-* Grade 4: 73-80 exercises
+* Grade 4: 74-80 exercises
 * Grade 5: 81-100 exercises
 
 Deadline for the exercises are as follows:
