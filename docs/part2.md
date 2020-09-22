@@ -288,7 +288,7 @@ The command `UPDATE` changes the content of the rows which match the selected co
 UPDATE Products SET price=6 WHERE name='turnip';
 ```
 
-Yuou can change several values by combining the changes with comma. For example the following command sets the `name` of the turnip into `pineapple` and `price` into `9`:
+You can change several values by combining the changes with comma. For example the following command sets the `name` of the turnip into `pineapple` and `price` into `9`:
 
 ```sql
 UPDATE Products SET name='pineapple', price=9 WHERE name='turnip';
@@ -301,7 +301,6 @@ UPDATE Products SET price=price+1 WHERE name='turnip';
 ```
 
 If the command does not have a condition, the update affects all rows. For example the following command changes the `price` of all the products into `3`:
-Jos komennossa ei ole ehtoa, se vaikuttaa kaikkiin riveihin. Esimerkiksi seuraava komento muuttaa jokaisen tuotteen hinnaksi 3:
 
 ```sql
 UPDATE Products SET price=3;
@@ -310,7 +309,6 @@ UPDATE Products SET price=3;
 ## Removing information
 
 The command `DELETE` removes from the table the rows, which match the wanted condition. For example the following command removes `carrot` from products:
-Tiedon poistaminen
 
 ```sql
 DELETE FROM Products WHERE name='carrot';
@@ -457,7 +455,6 @@ COUNT(DISTINCT price)
 With grouping we can combine information from rows and aggregate functions. The idea behind this is that rows are divided into groups with columns assigned to `GROUP BY`, after which the aggregate function is calculated for each group separately.
 
 Let's have another example of table `Sales`, where we have information about sales amounts for different years:
-Tarkastellaan esimerkkinä seuraavaa taulua Sales, joissa on tietoa tuotteiden myyntimääristä eri vuosina:
 
 ```
 id          product       year       amount

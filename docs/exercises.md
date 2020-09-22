@@ -7,18 +7,18 @@ published: true
 
 The exercises are stuctured as follows:
 
-* [Exercises 1-20](https://centria.github.io/sql-exercises/#1) are for Part 2
-* [Exercises 21-40](https://centria.github.io/sql-exercises/#21) are for Part 3
-* [Exercises 41-60](https://centria.github.io/sql-exercises/#41) are for Part 4
-* [Exercises 61-100](https://centria.github.io/sql-exercises/#61) are more advanced
+* [Exercises 1-20](https://centria.github.io/sql-exercises/#1) are for *SQL Basics*
+* [Exercises 21-40](https://centria.github.io/sql-exercises/#21) are for *Multiple tables*
+* [Exercises 41-60](https://centria.github.io/sql-exercises/#41) are for *More techniques*
+* [Exercises 61-100](https://centria.github.io/sql-exercises/#61) are more advanced from all topics
 
 To pass the course, you have to have at least **50 exercises** correctly done. The grading is as follows:
 
-* Grade 1: 50-59 exercises
-* Grade 2: 60-69 exercises
-* Grade 3: 70-79 exercises
-* Grade 4: 80-89 exercises
-* Grade 5: 90-100 exercises
+* Grade 1: 50-57 exercises
+* Grade 2: 58-65 exercises
+* Grade 3: 66-73 exercises
+* Grade 4: 74-80 exercises
+* Grade 5: 81-100 exercises
 
 Deadline for the exercises are as follows:
 
@@ -50,5 +50,6 @@ The exercises can be found here: [https://centria.github.io/sql-exercises/](http
 * Add your query to the answer box and press "Submit"
 * If your answer is correct, you get a green text *Your query is correct*
   * If it is incorrect, you will get *Your query is incorrect* in red. Try again until you pass the exercise.
+    * You can ask for help in Slack.
 * Copy your query to your answer file
 * Send the answers before the deadline to the teacher.
