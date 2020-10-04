@@ -25,7 +25,7 @@ Deadline for the exercises are as follows:
 * Exercises 1-20 deadline **15.9. at 23.59**
 * Exercises 21-40 deadline **22.9. at 23.59**
 * Exercises 41-60 deadline **29.9. at 23.59**
-* Exercises 61-100 deadline **6.10. at 23.59**
+* Exercises 61-100 deadline **20.10. at 23.59** NOTICE! Deadline extended!
 
 **The exercises are returned as an email**. Mark clearly your answers for each exercise.  
 
