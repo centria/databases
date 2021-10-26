@@ -19,3 +19,7 @@ The list below does not include everything, but exists to give a guideline for s
 | 7| Efficiency |
 
 Read next about the [exercises](exercises).
+
+## Prerequisites
+
+You do not need to install anything on your computer. However, some parts of the material use SQLite in the examples. It is voluntary to download and install, and can be found from here: [SQLite Download page](https://www.sqlite.org/download.html)
