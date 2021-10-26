@@ -1,7 +1,7 @@
 ---
 title: 'Exercise Instructions'
 nav_order: 9999
-hidden: true
+hidden: false
 ---
 
 # Prerequisits for the course
