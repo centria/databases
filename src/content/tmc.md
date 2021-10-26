@@ -1,28 +1,12 @@
 ---
-title: 'TMC Instructions'
+title: 'Exercise Instructions'
 nav_order: 9999
 hidden: true
 ---
 
 # Prerequisits for the course
 
-To do the exercises for this course, you need to install a few software to your computer.
-
-## .NET
-
-You need to have `.NET` (also called `Dotnet`) installed. You can install it from here: [https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
-
-## Visual Studio Code
-
-The editor used during this course is `Visual Studio Code`. You can fid the instruvtions from example here: [https://www.mooc.fi/en/installation/vscode/#installing-vscode](https://www.mooc.fi/en/installation/vscode/#installing-vscode) or the direct installation link from here: [https://code.visualstudio.com/download](https://code.visualstudio.com/download)
-
-## C# and TMC Plugin
-
-Once you have installed the Visual Studio Code, you need to install `Test My Code` or `TMC` plugin to it. You can find the instructions from here: [https://www.mooc.fi/en/installation/vscode/#installing-tmc](https://www.mooc.fi/en/installation/vscode/#installing-tmc)
-
-You also need the `C#` plugin: [https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-
-# How to do the exercises
+To do the exercises for this course, you need to create a MOOC account. If you have one already, use your existing one.
 
 ## Registering to the course
 
@@ -35,54 +19,21 @@ When you have the account, follow the instructions for:
 
 ## Doing the exercises
 
-You can find the exercises for each part at the end of each chapter. In some chapters, there might be no exercises.
+All the exercises are done at a [separate exercise page]((https://sql-trainer.azurewebsites.net/#1)). You need your TMC account to login to the page.
 
-You can follow these instructions (to a point) on how to submit exercises:
-[https://www.mooc.fi/en/installation/vscode/#first-programming-exercise](https://www.mooc.fi/en/installation/vscode/#first-programming-exercise)
+The exercises are stuctured as follows:
 
-<Note>
-The part of "Running the source code" does not unfortunately work yet.
+* [Exercises 1-20](https://sql-trainer.azurewebsites.net/#1) are for *SQL Basics*
+* [Exercises 21-40](https://sql-trainer.azurewebsites.net/#21) are for *Multiple tables*
+* [Exercises 41-60](https://sql-trainer.azurewebsites.net/#41) are for *More techniques*
+* [Exercises 61-100](https://sql-trainer.azurewebsites.net/#61) are more advanced from all topics
 
-We have to run our exercises manually, if we want to do so.
-</Note>
+To pass the course, you have to have at least **50 exercises** correctly done. The grading is as follows:
 
-## Running the exercises
+* Grade 1: 50-57 exercises
+* Grade 2: 58-65 exercises
+* Grade 3: 66-73 exercises
+* Grade 4: 74-80 exercises
+* Grade 5: 81-100 exercises
 
-In Visual Studio Code, select `Terminal` and then `New Terminal`
-
-![Terminal menu](https://github.com/centria/basic-csharp/raw/master/src/images/new-terminal.png)
-
-A selection of options will pop up. The selections contain all the open exercises. In the example, I am doing part 6, so I have those open.
-
-![Folder selection](https://github.com/centria/basic-csharp/raw/master/src/images/select-folder.png)
-
-- Select the exercise you are doing
-- A new terminal opens at the bottom of Visual Studio Code.
-
-- write the command `cd/Exercise000` , but instead of the zeros, use the actual exercise number. Press `Enter`.
-
-![Selecting source folder](https://github.com/centria/basic-csharp/raw/master/src/images/exercise003.png)
-
-- In the example, I am doing exercise 003 of the part, so my command is `cd/Exercise003`
-- Now you are in the actual exercise folder, and can run the program.
-- Run the program with the command `dotnet run`.
-
-![Dotnet run](https://github.com/centria/basic-csharp/raw/master/src/images/dotnet-run.png)
-
-- If your program works as it should, you can see the output in the console. The next example is from Part 6, exercise 003:
-
-![Dotnet run](https://github.com/centria/basic-csharp/raw/master/src/images/dotnet-print.png)
-
-<Note>The dollar sign in the pictures is NOT part of the command! </Note>
-
-## Testing your exercises
-
-Follow the instructions here: [https://www.mooc.fi/en/installation/vscode/#test-source-code](https://www.mooc.fi/en/installation/vscode/#test-source-code)
-
-## Submitting your exercises:
-
-Follow the instructions here: [https://www.mooc.fi/en/installation/vscode/#submit-solution](https://www.mooc.fi/en/installation/vscode/#submit-solution)
-
-## Checking your points:
-
-Follow the instructions here: [https://www.mooc.fi/en/installation/vscode/#check-your-points](https://www.mooc.fi/en/installation/vscode/#check-your-points)
+Deadline for all the exercises is **17.12.2021 at 16.00**
