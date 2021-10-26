@@ -1,8 +1,7 @@
 ---
 title: "Exercises"
-permalink: /exercises/
 nav_order: 666
-published: true
+hidden: false
 ---
 
 The exercises are stuctured as follows:
