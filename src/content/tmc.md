@@ -10,16 +10,11 @@ To do the exercises for this course, you need to create a MOOC account. If you h
 
 ## Registering to the course
 
-Once you have everything installed, you need to download the exercises to your computer. To do that, you need to have a `MOOC.fi account`. You can read the instructions from here: [https://www.mooc.fi/en/installation/vscode/#mooc.fi-create-account](https://www.mooc.fi/en/installation/vscode/#mooc.fi-create-account). Follow the instructions to `login`.
-
-When you have the account, follow the instructions for:
-
-- Selecting your organization: _Centria University of Applied Sciences_
-- Selecting your course: _Basics of Programming in C#_
+Once you have everything installed, you need to download the exercises to your computer. To do that, you need to have a `MOOC.fi account`. You can read the instructions from here: [https://www.mooc.fi/en/installation/vscode/#mooc.fi-create-account](https://www.mooc.fi/en/installation/vscode/#mooc.fi-create-account).
 
 ## Doing the exercises
 
-All the exercises are done at a [separate exercise page]((https://sql-trainer.azurewebsites.net/#1)). You need your TMC account to login to the page.
+All the exercises are done at a [separate exercise page](https://sql-trainer.azurewebsites.net/#1). You need your TMC account to login to the page.
 
 The exercises are stuctured as follows:
 
