@@ -1,5 +1,5 @@
 ---
-title: 'Exercise Instructions'
+title: 'Exercises'
 nav_order: 9999
 hidden: false
 ---
