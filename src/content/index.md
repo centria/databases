@@ -18,4 +18,4 @@ The list below does not include everything, but exists to give a guideline for s
 | 6| Data integrity |
 | 7| Efficiency |
 
-Read next about the [exercises and grading](../exercises).
+Read next about the [exercises](exercises).
