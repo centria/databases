@@ -14,7 +14,7 @@ You need to have a `MOOC.fi account` for submitting the exercises. You can read 
 
 ## Doing the exercises
 
-All the exercises are done at a [separate exercise page](https://sql-trainer.azurewebsites.net/#1). You need your TMC account to login to the page. Once logged in, the page keeps track of your submitted exercises.
+All the exercises are done at a [separate exercise page](https://sql-trainer.azurewebsites.net/#1). You need your MOOC account to login to the page. Once logged in, the page keeps track of your submitted exercises.
 
 The exercises are themed as follows:
 
