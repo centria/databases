@@ -145,7 +145,7 @@ A database diagram is a graphical representation of a database, where every tabl
 
 There are several tools to draw database diagrams. This picture was done with an online tool [https://dbdiagram.io/](https://dbdiagram.io/d):
 
-![Database diagram of a simple three table Database](https://raw.githubusercontent.com/centria/databases/master/assets/images/diagram_new.png) 
+![Database diagram of a simple three table Database](https://raw.githubusercontent.com/centria/databases/master/src/images/diagram_new.png) 
 
 Here the notation `1` means that the columns has a different value for each row, and the notation `*` means that the column can have the same value on multiple rows. For example in the table `Products` each row has different `id`, but in the table `Purchases` multiple rows can have the same `product_id`.
 
