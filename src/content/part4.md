@@ -6,7 +6,7 @@ hidden: false
 
 # Properties of SQL
 
-In SQL there are many same elements as in programming: Types, statements and fucntions. We have seen many examples of SQL commands, but let's loon into the language a bit deeper.
+In SQL there are many same elements as in programming: Types, statements and functions. We have seen many examples of SQL commands, but let's loon into the language a bit deeper.
 
 # Types
 
