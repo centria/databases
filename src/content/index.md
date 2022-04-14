@@ -4,7 +4,7 @@ nav_order: 2
 hidden: false
 ---
 
-Welcome to Relational Databases and SQL course! The course begins 11.1.2022 and ends 31.7.2022.
+Welcome to Relational Databases and SQL course! The course begins 11.1.2022 and ends 15.8.2022.
 
 ## If you just want to learn
 
