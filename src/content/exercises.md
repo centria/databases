@@ -35,12 +35,12 @@ To pass the course, you have to have at least **50 exercises** correctly done, a
 * Grade 4: 74-80 exercises
 * Grade 5: 81-100 exercises
 
-Deadline for all the exercises is **15.8.2022 at 16.00**
+Deadline for all the exercises is **14.8.2022 at 16.00**
 
 ## The exam
 
 The exam will be held in Centria's Itslearning platform. To access the exam, you have to register to the Open University course from [HERE](https://koulutus.centria.fi/koulutukset/software-development/).
 
-The deadline for the exam and to gain credits is 15.8.2022.
+The deadline for the exam and to gain credits is 14.8.2022.
 
 <Note>Registering for the exam closes already 31.5.2022!</Note>
