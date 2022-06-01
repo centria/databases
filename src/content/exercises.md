@@ -1,5 +1,5 @@
 ---
-title: 'Exercises'
+title: 'Exercises and Exam'
 nav_order: 9999
 hidden: false
 ---
@@ -23,7 +23,7 @@ The exercises are themed as follows:
 * [Exercises 41-60](https://sql-trainer.azurewebsites.net/#41) are for *More techniques*
 * [Exercises 61-100](https://sql-trainer.azurewebsites.net/#61) are more advanced from all topics
 
-To pass the course, you have to have at least **50 exercises** correctly done. The grading is as follows:
+To pass the course, you have to have at least **50 exercises** correctly done and pass the exam. The grading is as follows:
 
 * Grade 1: 50-57 exercises
 * Grade 2: 58-65 exercises
@@ -31,4 +31,10 @@ To pass the course, you have to have at least **50 exercises** correctly done. T
 * Grade 4: 74-80 exercises
 * Grade 5: 81-100 exercises
 
-Deadline for all the exercises is **17.12.2021 at 16.00**
+Deadline for all the exercises is **14.8.2022 at 16.00**
+
+## The exam
+
+The exam will be held in Centria's Itslearning platform. To access the exam, you have to register to the Open University course from [this page: https://koulutus.centria.fi/koulutukset/software-development/](https://koulutus.centria.fi/koulutukset/software-development/s).
+
+Those who want to get ECTS credits, must enroll in open university by 31.7.2022. The registrees will get the credentials in Centria’s Itslearning-environment on 5.8. The final exam in Itslearning must be finished by 14.8. The student’s performance will be evaluated by the teacher on 14.9. at latest.
