@@ -16,6 +16,10 @@ You need to have a `MOOC.fi account` for submitting the exercises. You can read 
 
 All the exercises are done at a [separate exercise page](https://sql-trainer.azurewebsites.net/#1). You need your MOOC account to login to the page. Once logged in, the page keeps track of your submitted exercises.
 
+<Note>
+If you want credits, use the same email for Open University and MOOC account!
+</Note>
+
 The exercises are themed as follows:
 
 * [Exercises 1-20](https://sql-trainer.azurewebsites.net/#1) are for *SQL Basics*
@@ -23,7 +27,7 @@ The exercises are themed as follows:
 * [Exercises 41-60](https://sql-trainer.azurewebsites.net/#41) are for *More techniques*
 * [Exercises 61-100](https://sql-trainer.azurewebsites.net/#61) are more advanced from all topics
 
-To pass the course, you have to have at least **50 exercises** correctly done and pass the exam. The grading is as follows:
+To pass the course, you have to have at least **50 exercises** correctly done, as well as pass the exam. The grading is as follows:
 
 * Grade 1: 50-57 exercises
 * Grade 2: 58-65 exercises
