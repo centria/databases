@@ -18,7 +18,7 @@ There are a vast amount of databases, and most people are in contact with multip
 
 ## Challenges for databases
 
-There are several technical difficulties conserning databases, and it is not easy to build a well functioning database. The most common challenges are:
+There are several technical difficulties concerning databases, and it is not easy to build a well functioning database. The most common challenges are:
 
 ## Amount of information
 
