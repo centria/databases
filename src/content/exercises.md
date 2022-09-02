@@ -17,7 +17,7 @@ You need to have a `MOOC.fi account` for submitting the exercises. You can read 
 All the exercises are done at a [separate exercise page](https://sql-trainer.azurewebsites.net/#1). You need your MOOC account to login to the page. Once logged in, the page keeps track of your submitted exercises.
 
 <Note>
-If you want credits, use the same email for Open University and MOOC account!
+If you want credits, use the same email for course registeration and MOOC account!
 </Note>
 
 The exercises are themed as follows:
@@ -35,10 +35,15 @@ To pass the course, you have to have at least **50 exercises** correctly done, a
 * Grade 4: 74-80 exercises
 * Grade 5: 81-100 exercises
 
-Deadline for all the exercises is **14.8.2022 at 16.00**
+The course can have either weekly deadlines or a single deadline at the end, by which exercises have to be done. The deadlines are automatic and hard. The deadline is always at the end of the course.
+
 
 ## The exam
 
-The exam will be held in Centria's Itslearning platform. To access the exam, you have to register to the Open University course from [this page: https://koulutus.centria.fi/koulutukset/software-development/](https://koulutus.centria.fi/koulutukset/software-development/s).
+The exam will be held in Centria's Itslearning platform. 
 
-Those who want to get ECTS credits, must enroll in open university by 31.7.2022. The registrees will get the credentials in Centria’s Itslearning-environment on 5.8. The final exam in Itslearning must be finished by 14.8. The student’s performance will be evaluated by the teacher on 14.9. at latest.
+### Open university exam
+
+To access the exam, you have to register to the Open University course from this page: https://koulutus.centria.fi/koulutukset/software-development/.
+
+Those who want to get ECTS credits, must enroll in open university. The registrees will get the credentials in Centria’s Itslearning-environment. The final exam in Itslearning must be finished by deadline (set per course basis).
