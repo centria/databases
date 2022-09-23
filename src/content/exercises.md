@@ -40,6 +40,8 @@ The course can have either weekly deadlines or a single deadline at the end, by 
 
 ## The exam
 
+At the end of the course, there is also an exam with **pass / fail** grading. This does not affect the grade but is to ensure that you have done the exercises yourself. The exam is reserved for students of Centria University of Applied Sciences and Centria Open University, and you can find the registeration information from above. The course material and the exercises are available still for anyone who wants.
+
 The exam will be held in Centria's Itslearning platform. 
 
 ### Open university exam

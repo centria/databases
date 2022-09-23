@@ -32,20 +32,7 @@ The list below does not include everything, but exists to give a guideline for s
 | 6| Data integrity |
 | 7| Efficiency |
 
-Read next about the [exercises](exercises).
-
-The course is graded on a scale of 0-5. The grade comprises of the amount of exercises done.
-
-| Percentage done | Grade |
-| :-------------- | :---: |
-| 81 % or more    |   5   |
-| 74 % - 80,99 %  |   4   |
-| 66 % - 73,99 %  |   3   |
-| 58 % - 65,99 %  |   2   |
-| 50 % - 57,99 %  |   1   |
-| Less than 50 %  |   0   |
-
-At the end of the course, there is also an exam with **pass / fail** grading. This does not affect the grade but is to ensure that you have done the exercises yourself. The exam is reserved for students of Centria University of Applied Sciences and Centria Open University, and you can find the registeration information from above. The course material and the exercises are available still for anyone who wants.
+Read next about the [exercises and exam](exercises).
 
 ## Prerequisites
 
