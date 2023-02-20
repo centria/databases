@@ -29,7 +29,7 @@ Statements are a part of SQL command, with a certain value. For example in query
 SELECT price FROM Products WHERE name='radish';
 ```
 
-Has two statements: `price` and `name='radish'`. In this the statement `price` defines the content of the result set, and the statement `name='radish'` is a conditional statement to limit the query.
+Has four statements: `name`, `price`, `'radish'` and `name='radish'`. In this the statement `price` and `price` get their values from the column of the row, statement `'radish'` is a string and the statement `name='radish'` is a conditional statement to limit the query.
 
 We can also use calculations and other operators the same way as in programming. For example the query
 
